@@ -1,7 +1,10 @@
 package weather_app.com.eoin.ie.weather_app_demo.Views.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +22,7 @@ import weather_app.com.eoin.ie.weather_app_demo.Domain.Entity.DailyWeatherItem;
 import weather_app.com.eoin.ie.weather_app_demo.Domain.Entity.Location;
 import weather_app.com.eoin.ie.weather_app_demo.Presenters.WeatherCallbackImp;
 import weather_app.com.eoin.ie.weather_app_demo.R;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
 import weather_app.com.eoin.ie.weather_app_demo.Views.Adapters.MainWeatherRecviewAdpt;
 import weather_app.com.eoin.ie.weather_app_demo.Views.ViewInterfaces.WeatherView;
 import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
@@ -26,31 +30,37 @@ import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
 
 public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> implements WeatherView
 {
-    @BindView(R.id.weather_recview) RecyclerView forecastview;
-    @BindView(R.id.progbar)ProgressBar progbar;
+    //@BindView(R.id.weather_recview) RecyclerView forecastview;
+    //@BindView(R.id.progbar)ProgressBar progbar;
+
+    //butterknife not binding views??
 
     private MainWeatherRecviewAdpt weatheraapter;
-    private LinearLayoutManager llmanager;
+    private GridLayoutManager gridlmanager;
 
+    RecyclerView forecastview;
 
-    //not used at present!!
     @Inject Gson gson;
     @Inject SharedPreferences preferences;
     @Inject SharedPreferences.Editor edit;
     @Inject Handler mainhandler;
+    @Inject DateFormatterUtil dateformatter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        //ButterKnife.bind(this);
         WeatherApp.getComponent().inject(this);
+
+        forecastview = (RecyclerView) findViewById(R.id.weather_recview);
+        gridlmanager =  new GridLayoutManager(this, 2);
+        forecastview.setLayoutManager(gridlmanager);
 
         presenter.attachView(this);
         presenter.getWeatherData();
-
-        llmanager = new LinearLayoutManager(getContext());
 
     }
 
@@ -72,27 +82,14 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
     @Override
     public void onCompleted(final Location loc) {
 
-
-        Log.d("lat, lon", String.valueOf(loc.latitude) +  " " + String.valueOf(loc.longitude));
-        Log.d("lat, stuff", String.valueOf(loc.timezone));
-        Log.d("dat count", String.valueOf(loc.daily.data.size()));
         createRecyclerView(loc.daily.data);
-
-
     }
 
 
     public void createRecyclerView(ArrayList<DailyWeatherItem> weatheritems)
     {
-
-       // llmanager = new LinearLayoutManager(this);
-        weatheraapter = new MainWeatherRecviewAdpt(weatheritems);
-        //forecastview.setLayoutManager(llmanager);
-        forecastview.setLayoutManager(new LinearLayoutManager(this));
+        weatheraapter = new MainWeatherRecviewAdpt(weatheritems, dateformatter);
         forecastview.setAdapter(weatheraapter);
-        //forecastview.setLayoutManager(new LinearLayoutManager(this));
-
-
     }
 
 

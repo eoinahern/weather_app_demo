@@ -14,6 +14,8 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.CachedHttpClient;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtilImp;
 import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
 
 /**
@@ -73,7 +75,15 @@ public class AppModule {
     @Singleton
     public OkHttpClient getClient()
     {
+
         return new CachedHttpClient(app).getClient();
+    }
+
+    @Provides
+    @Singleton
+    public DateFormatterUtil getDateFormatter()
+    {
+        return new DateFormatterUtilImp();
     }
 
 

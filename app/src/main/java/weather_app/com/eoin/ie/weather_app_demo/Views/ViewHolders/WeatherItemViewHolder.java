@@ -11,12 +11,14 @@ import weather_app.com.eoin.ie.weather_app_demo.R;
  */
 public class WeatherItemViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView weathertype;
+    public TextView day;
+    public TextView temp;
 
 
 
     public WeatherItemViewHolder(View view) {
         super(view);
-        weathertype = (TextView) view.findViewById(R.id.type_txt);
+        day = (TextView) view.findViewById(R.id.day_text);
+        temp = (TextView) view.findViewById(R.id.temp_text);
     }
 }

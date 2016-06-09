@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient;
 import weather_app.com.eoin.ie.weather_app_demo.DI.Modules.AppModule;
 import weather_app.com.eoin.ie.weather_app_demo.Presenters.MvpBasePresenter;
 import weather_app.com.eoin.ie.weather_app_demo.Presenters.MvpPresenter;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
 import weather_app.com.eoin.ie.weather_app_demo.Views.Activity.MainActivity;
 import weather_app.com.eoin.ie.weather_app_demo.Views.Activity.MvpActivity;
 import weather_app.com.eoin.ie.weather_app_demo.Views.ViewInterfaces.MvpView;
@@ -28,6 +29,7 @@ public interface AppComponent {
     Context cont();
     Gson gson();
     OkHttpClient client();
+    DateFormatterUtil formatter();
 
     void inject(MainActivity act);
 
