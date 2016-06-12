@@ -41,12 +41,16 @@ public class MainWeatherRecviewAdpt  extends RecyclerView.Adapter  {
         float maxtemp = item.temperatureMax;
         vh.temp.setText(String.valueOf(maxtemp) + "\u2109");
         vh.day.setText(String.valueOf(formatter.convertToDay(item.time)));
+
+
+        
     }
 
     @Override
     public int getItemCount() {
         return weatheritems.size();
     }
+
 
 
 }

@@ -1,13 +1,19 @@
 package weather_app.com.eoin.ie.weather_app_demo.Views.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
+import android.transition.TransitionManager;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
@@ -65,6 +71,20 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
     }
 
 
+    private void setWindowTransition(int listsize)
+    {
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Slide slide = new Slide();
+            slide.setDuration(800);
+            slide.setSlideEdge(Gravity.RIGHT);
+            TransitionManager.beginDelayedTransition(forecastview,slide);
+            forecastview.setTransitionGroup(true);
+            forecastview.setVisibility(View.VISIBLE);
+        }
+    }
+
+
     @Override
     protected WeatherCallbackImp createPresenter() {
         return new WeatherCallbackImp();
@@ -90,6 +110,7 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
     {
         weatheraapter = new MainWeatherRecviewAdpt(weatheritems, dateformatter);
         forecastview.setAdapter(weatheraapter);
+        setWindowTransition(weatheritems.size());
     }
 
 
