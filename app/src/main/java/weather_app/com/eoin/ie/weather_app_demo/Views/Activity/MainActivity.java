@@ -101,7 +101,6 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
 
     @Override
     public void onCompleted(final Location loc) {
-
         createRecyclerView(loc.daily.data);
     }
 

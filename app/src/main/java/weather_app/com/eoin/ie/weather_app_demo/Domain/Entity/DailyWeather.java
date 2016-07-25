@@ -23,12 +23,9 @@ public class DailyWeather  implements Parcelable{
 
     public DailyWeather(Parcel in)
     {
-
         data = in.createTypedArrayList(DailyWeatherItem.CREATOR);
         summary = in.readString();
         icon = in.readString();
-
-
     }
 
     public static final Parcelable.Creator<DailyWeather> CREATOR

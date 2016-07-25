@@ -18,13 +18,12 @@ public class MvpBasePresenter<V extends MvpView> extends InjectedBasePresenter i
 
     @Override
     public void attachView(V viewin) {
-
         view = new WeakReference<>(viewin);
     }
 
 
     public boolean isAttached() {
-       return (view == null ) ? true : false;
+       return (view != null ) ? true : false;
     }
 
 

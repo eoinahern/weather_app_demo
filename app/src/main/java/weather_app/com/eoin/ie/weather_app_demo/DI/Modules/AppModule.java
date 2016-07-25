@@ -75,7 +75,6 @@ public class AppModule {
     @Singleton
     public OkHttpClient getClient()
     {
-
         return new CachedHttpClient(app).getClient();
     }
 

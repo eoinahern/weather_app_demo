@@ -30,12 +30,16 @@ public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements
 
                 if (response.isSuccessful()) {
                     WeatherView v = getView();
-                    v.onCompleted((Location) response.body());
-                    return;
+
+                    if(isAttached()) {
+                        v.onCompleted((Location) response.body());
+                        return;
+                    }
                 }
 
                 Log.d("on response failed", response.message());
-                getView().onFailed();
+                if(isAttached())
+                    getView().onFailed();
             }
 
             @Override
@@ -44,7 +48,8 @@ public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements
                 //e.g no connection.
                 Log.d("error message", t.getMessage());
                 Log.d("error cause", t.getCause().toString());
-                getView().onFailed();
+                if(isAttached())
+                    getView().onFailed();
             }
         });
     }
