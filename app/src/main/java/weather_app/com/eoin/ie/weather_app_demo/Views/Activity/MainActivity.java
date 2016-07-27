@@ -1,10 +1,13 @@
 package weather_app.com.eoin.ie.weather_app_demo.Views.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +17,7 @@ import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
@@ -42,6 +46,7 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
     //butterknife not binding views??
 
     private MainWeatherRecviewAdpt weatheraapter;
+    private ProgressBar progbar;
     private GridLayoutManager gridlmanager;
 
     RecyclerView forecastview;
@@ -61,19 +66,18 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
         //ButterKnife.bind(this);
         WeatherApp.getComponent().inject(this);
 
-        forecastview = (RecyclerView) findViewById(R.id.weather_recview);
+                forecastview = (RecyclerView) findViewById(R.id.weather_recview);
+        progbar = (ProgressBar) findViewById(R.id.progbar);
         gridlmanager =  new GridLayoutManager(this, 2);
         forecastview.setLayoutManager(gridlmanager);
 
         presenter.attachView(this);
         presenter.getWeatherData();
-
     }
 
 
     private void setWindowTransition(int listsize)
     {
-
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Slide slide = new Slide();
             slide.setDuration(800);
@@ -85,13 +89,12 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
     }
 
 
+
+
     @Override
     protected WeatherCallbackImp createPresenter() {
         return new WeatherCallbackImp();
     }
-
-
-
 
     /**
      * callback from presenter on success
@@ -107,8 +110,9 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
 
     public void createRecyclerView(ArrayList<DailyWeatherItem> weatheritems)
     {
-        weatheraapter = new MainWeatherRecviewAdpt(weatheritems, dateformatter);
+        weatheraapter = new MainWeatherRecviewAdpt(this,weatheritems, dateformatter);
         forecastview.setAdapter(weatheraapter);
+        progbar.setVisibility(View.INVISIBLE);
         setWindowTransition(weatheritems.size());
     }
 

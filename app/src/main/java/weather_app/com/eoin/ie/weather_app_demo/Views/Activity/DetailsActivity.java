@@ -1,6 +1,7 @@
 package weather_app.com.eoin.ie.weather_app_demo.Views.Activity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import weather_app.com.eoin.ie.weather_app_demo.Presenters.DetailsCallback;
 import weather_app.com.eoin.ie.weather_app_demo.Presenters.DetailsCallbackImp;
@@ -14,10 +15,19 @@ import weather_app.com.eoin.ie.weather_app_demo.Views.ViewInterfaces.DetailsView
 public class DetailsActivity extends MvpActivity<DetailsView, DetailsCallbackImp>  implements DetailsView{
 
 
+    private ImageView mainiv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_layout);
+
+
+        mainiv = (ImageView) findViewById(R.id.mainimview);
+
+
+
+
         presenter.attachView(this);
     }
 

@@ -15,6 +15,7 @@
         android:id="@+id/imview"
         android:scaleType="fitXY"
         android:layout_marginBottom="30dp"
+        android:transitionName="@string/transition_string"
         android:layout_gravity="center"
         android:background="@drawable/cloudy">
         </ImageView>
