@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.DailyWeatherItem;
+import weather_app.com.eoin.ie.weather_app_demo.Data.d.Repository.DataSource;
 import weather_app.com.eoin.ie.weather_app_demo.Data.d.Repository.WeatherFactory;
 import weather_app.com.eoin.ie.weather_app_demo.Domain.d.WeatherRepository;
 
@@ -25,8 +26,14 @@ public class WeatherRepositoryImp implements WeatherRepository {
     }
 
 
+
+
+    //if data returned from the web save to db
+
+
+
     @Override
     public Observable<List<DailyWeatherItem>> getWeatherList() {
-          return  fact.getDataSource().getDailyWeather();
+         DataSource ds = fact.getDataSource();
     }
 }
