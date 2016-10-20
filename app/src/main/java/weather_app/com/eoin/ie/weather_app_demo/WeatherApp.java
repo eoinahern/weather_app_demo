@@ -1,11 +1,10 @@
 package weather_app.com.eoin.ie.weather_app_demo;
 
 import android.app.Application;
-import android.content.Context;
 
-import weather_app.com.eoin.ie.weather_app_demo.DI.Components.AppComponent;
-import weather_app.com.eoin.ie.weather_app_demo.DI.Components.DaggerAppComponent;
-import weather_app.com.eoin.ie.weather_app_demo.DI.Modules.AppModule;
+import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.AppComponent;
+import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerAppComponent;
+import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Modules.AppModule;
 
 /**
  * Created by eoin_a on 02/06/2016.

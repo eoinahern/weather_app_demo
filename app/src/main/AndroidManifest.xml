@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:name="weather_app.com.eoin.ie.weather_app_demo.WeatherApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.Activity.MainActivity">
+        <activity android:name=".Presentation.Pres.Views.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
             <activity
-                android:name=".Views.Activity.DetailsActivity"
+                android:name=".Presentation.Pres.Views.Activity.DetailsActivity"
                  >
             </activity>
     </application>
