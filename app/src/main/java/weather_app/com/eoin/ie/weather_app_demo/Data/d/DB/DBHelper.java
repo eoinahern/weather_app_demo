@@ -1,5 +1,7 @@
 package weather_app.com.eoin.ie.weather_app_demo.Data.d.DB;
 
+import android.content.Context;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,10 +16,14 @@ import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.DailyWeatherItem;
 
 public class DBHelper {
 
-    @Inject
-    public DBHelper()
-    {
 
+    private Context cont;
+
+
+    @Inject
+    public DBHelper(Context cont)
+    {
+        this.cont = cont;
     }
 
     public Observable<List<DailyWeatherItem>> getDailyWeather(){

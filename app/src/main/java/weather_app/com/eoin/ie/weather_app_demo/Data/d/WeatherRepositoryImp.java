@@ -26,14 +26,8 @@ public class WeatherRepositoryImp implements WeatherRepository {
     }
 
 
-
-
-    //if data returned from the web save to db
-
-
-
     @Override
     public Observable<List<DailyWeatherItem>> getWeatherList() {
-         DataSource ds = fact.getDataSource();
+        return fact.getDataSource().getDailyWeather();
     }
 }
