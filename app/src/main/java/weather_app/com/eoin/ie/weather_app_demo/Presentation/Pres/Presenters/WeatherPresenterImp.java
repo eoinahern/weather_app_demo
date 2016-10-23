@@ -1,19 +1,25 @@
 package weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Presenters;
 
+
 import android.util.Log;
 
+import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.Location;
+import rx.Subscriber;
+import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.DailyWeatherItem;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Views.ViewInterfaces.WeatherView;
 
 /**
  * Created by eoin_a on 01/06/2016.
  */
-public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements  WeatherCallback {
+public class WeatherPresenterImp extends MvpBasePresenter<WeatherView> implements WeatherPresenter {
 
+
+
+    public WeatherPresenterImp()
+    {
+
+    }
 
     @Override
     public void getWeatherData() {
@@ -49,4 +55,33 @@ public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements
             }
         });*/
     }
+
+    private class WsubScriber extends Subscriber<List<DailyWeatherItem>> {
+
+
+        @Override
+        public void onCompleted() {
+            Log.d("message", "subscription complete");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            if(isAttached())
+                getView().onFailed();
+        }
+
+        @Override
+        public void onNext(List<DailyWeatherItem> dailyWeatherItems) {
+            //sent list to view
+            if(isAttached())
+            {
+               //return list of weather!!!
+            }
+
+        }
+
+    }
+
+
+
 }

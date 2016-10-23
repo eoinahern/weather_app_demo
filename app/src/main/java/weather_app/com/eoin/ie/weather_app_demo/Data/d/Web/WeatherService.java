@@ -11,7 +11,6 @@ import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.Location;
  * used to connect to our service on the web
  */
 public interface WeatherService {
-
    @GET("{lat},{long}")
    Observable<Location> getLocationData(@Path("lat") String lat, @Path("long") String longitude);
 }

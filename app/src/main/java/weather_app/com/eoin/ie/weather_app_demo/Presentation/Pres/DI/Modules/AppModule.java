@@ -16,6 +16,7 @@ import okhttp3.OkHttpClient;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.CachedHttpClient;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtilImp;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.SharedPrefsHelper;
 import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
 
 /**
@@ -42,16 +43,9 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public SharedPreferences getprefs()
+    public SharedPrefsHelper getprefs(Context cont)
     {
-        return PreferenceManager.getDefaultSharedPreferences(app);
-    }
-
-    @Provides
-    @Singleton
-    public SharedPreferences.Editor getPrefsEdit()
-    {
-       return PreferenceManager.getDefaultSharedPreferences(app).edit();
+        return  new SharedPrefsHelper(cont);
     }
 
 

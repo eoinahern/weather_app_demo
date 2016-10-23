@@ -21,7 +21,7 @@ import javax.inject.Inject;
 
 import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.DailyWeatherItem;
 import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.Location;
-import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Presenters.WeatherCallbackImp;
+import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Presenters.WeatherPresenterImp;
 import weather_app.com.eoin.ie.weather_app_demo.R;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Views.Adapters.MainWeatherRecviewAdpt;
@@ -29,7 +29,7 @@ import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Views.ViewInte
 import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
 
 
-public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> implements WeatherView
+public class MainActivity extends MvpActivity<WeatherView, WeatherPresenterImp> implements WeatherView
 {
     //@BindView(R.id.weather_recview) RecyclerView forecastview;
     //@BindView(R.id.progbar)ProgressBar progbar;
@@ -83,8 +83,8 @@ public class MainActivity extends MvpActivity<WeatherView, WeatherCallbackImp> i
 
 
     @Override
-    protected WeatherCallbackImp createPresenter() {
-        return new WeatherCallbackImp();
+    protected WeatherPresenterImp createPresenter() {
+        return new WeatherPresenterImp();
     }
 
     /**

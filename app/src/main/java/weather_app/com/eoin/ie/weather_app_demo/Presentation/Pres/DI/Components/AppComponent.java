@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Modules.AppModule;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.DateFormatterUtil;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Views.Activity.MainActivity;
+import weather_app.com.eoin.ie.weather_app_demo.Utils.SharedPrefsHelper;
 
 /**
  * Created by eoin_a on 02/06/2016.
@@ -20,8 +21,7 @@ import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Views.Activity
 @Component(modules = {AppModule.class})
 public interface AppComponent {
 
-    SharedPreferences prefs();
-    SharedPreferences.Editor editor();
+    SharedPrefsHelper prefs();
     Context cont();
     Gson gson();
     OkHttpClient client();
