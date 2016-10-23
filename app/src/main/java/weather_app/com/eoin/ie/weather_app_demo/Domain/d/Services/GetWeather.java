@@ -10,5 +10,6 @@ import weather_app.com.eoin.ie.weather_app_demo.Data.d.Entity.DailyWeatherItem;
  */
 
 public interface GetWeather {
-    Observable<List<DailyWeatherItem>> getWeather();
+    void Unsubscribe();
+    void getWeather();
 }

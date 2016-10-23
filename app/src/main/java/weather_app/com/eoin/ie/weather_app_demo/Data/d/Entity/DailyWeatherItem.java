@@ -26,6 +26,133 @@ public class DailyWeatherItem implements Parcelable {
     public float pressure;
     public float cloudCover;
 
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public long getSunriseTime() {
+        return sunriseTime;
+    }
+
+    public void setSunriseTime(long sunriseTime) {
+        this.sunriseTime = sunriseTime;
+    }
+
+    public long getSunsetTime() {
+        return sunsetTime;
+    }
+
+    public void setSunsetTime(long sunsetTime) {
+        this.sunsetTime = sunsetTime;
+    }
+
+    public float getPrecipProbability() {
+        return precipProbability;
+    }
+
+    public void setPrecipProbability(float precipProbability) {
+        this.precipProbability = precipProbability;
+    }
+
+    public float getTemperatureMin() {
+        return temperatureMin;
+    }
+
+    public void setTemperatureMin(float temperatureMin) {
+        this.temperatureMin = temperatureMin;
+    }
+
+    public long getTemperatureMinTime() {
+        return temperatureMinTime;
+    }
+
+    public void setTemperatureMinTime(long temperatureMinTime) {
+        this.temperatureMinTime = temperatureMinTime;
+    }
+
+    public float getTemperatureMax() {
+        return temperatureMax;
+    }
+
+    public void setTemperatureMax(float temperatureMax) {
+        this.temperatureMax = temperatureMax;
+    }
+
+    public long getTemperatureMaxTime() {
+        return temperatureMaxTime;
+    }
+
+    public void setTemperatureMaxTime(long temperatureMaxTime) {
+        this.temperatureMaxTime = temperatureMaxTime;
+    }
+
+    public long getApparentTemperatureMaxTime() {
+        return apparentTemperatureMaxTime;
+    }
+
+    public void setApparentTemperatureMaxTime(long apparentTemperatureMaxTime) {
+        this.apparentTemperatureMaxTime = apparentTemperatureMaxTime;
+    }
+
+    public float getDewPoint() {
+        return dewPoint;
+    }
+
+    public void setDewPoint(float dewPoint) {
+        this.dewPoint = dewPoint;
+    }
+
+    public float getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(float windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(float humidity) {
+        this.humidity = humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(float pressure) {
+        this.pressure = pressure;
+    }
+
+    public float getCloudCover() {
+        return cloudCover;
+    }
+
+    public void setCloudCover(float cloudCover) {
+        this.cloudCover = cloudCover;
+    }
 
     public DailyWeatherItem()
     {
