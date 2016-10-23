@@ -2,8 +2,8 @@ package weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.Presenters;
 
 import javax.inject.Inject;
 
-import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerAppComponent;
-import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerWebComponent;
+//import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerAppComponent;
+//import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerWebComponent;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Modules.WebModule;
 import weather_app.com.eoin.ie.weather_app_demo.Data.d.Web.WeatherService;
 import weather_app.com.eoin.ie.weather_app_demo.WeatherApp;
@@ -26,6 +26,6 @@ public class InjectedBasePresenter {
 
     public InjectedBasePresenter()
     {
-        DaggerWebComponent.builder().webModule(new WebModule()).appComponent(WeatherApp.getComponent()).build().inject(this);
+       // DaggerWebComponent.builder().webModule(new WebModule()).appComponent(WeatherApp.getComponent()).build().inject(this);
     }
 }

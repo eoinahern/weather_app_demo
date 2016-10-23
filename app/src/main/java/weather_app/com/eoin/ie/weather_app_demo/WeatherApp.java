@@ -3,7 +3,7 @@ package weather_app.com.eoin.ie.weather_app_demo;
 import android.app.Application;
 
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.AppComponent;
-import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerAppComponent;
+//import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Components.DaggerAppComponent;
 import weather_app.com.eoin.ie.weather_app_demo.Presentation.Pres.DI.Modules.AppModule;
 
 /**
@@ -17,7 +17,7 @@ public class WeatherApp extends Application {
     public void onCreate()
     {
         super.onCreate();
-        appcomponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        //appcomponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
     }
 
     public static AppComponent getComponent()

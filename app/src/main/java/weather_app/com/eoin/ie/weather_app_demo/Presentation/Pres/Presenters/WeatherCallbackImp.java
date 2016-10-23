@@ -17,10 +17,10 @@ public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements
 
     @Override
     public void getWeatherData() {
-       Call call = repo.getLocationData("53.3498", "6.2603");
+       //Call call = repo.getLocationData("53.3498", "6.2603");
 
 
-        call.enqueue(new Callback<Location>() {
+       /* call.enqueue(new Callback<Location>() {
             @Override
             public void onResponse(Call call, Response response) {
 
@@ -47,6 +47,6 @@ public class WeatherCallbackImp extends MvpBasePresenter<WeatherView> implements
                 if(isAttached())
                     getView().onFailed();
             }
-        });
+        });*/
     }
 }
