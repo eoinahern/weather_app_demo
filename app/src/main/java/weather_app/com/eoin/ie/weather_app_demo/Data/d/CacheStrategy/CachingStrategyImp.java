@@ -1,5 +1,7 @@
 package weather_app.com.eoin.ie.weather_app_demo.Data.d.CacheStrategy;
 
+import javax.inject.Inject;
+
 import weather_app.com.eoin.ie.weather_app_demo.Utils.NetworkCheckerHelper;
 import weather_app.com.eoin.ie.weather_app_demo.Utils.SharedPrefsHelper;
 
@@ -16,7 +18,7 @@ public class CachingStrategyImp implements CachingStrategy {
     private NetworkCheckerHelper networkcheck;
     private SharedPrefsHelper sharedprefshelp;
 
-
+    @Inject
     public CachingStrategyImp(NetworkCheckerHelper net, SharedPrefsHelper shared)
     {
         this.networkcheck = net;
